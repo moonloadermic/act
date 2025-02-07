@@ -36,9 +36,10 @@ y = round(loc[1])
 
 print(x,y)
 
-ele.click()
+#ele.click()
 #subprocess.call(["xdotool", "mousemove", "x", "y"])
 #subprocess.call(["xdotool", "click", "1"])
+subprocess.call(["xdotool", "mousemove", "x", "y", "click", "1"])
 
 time.sleep(2)
 try:
