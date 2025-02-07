@@ -37,9 +37,12 @@ y = round(loc[1])
 print(x,y)
 
 #ele.click()
-#subprocess.call(["xdotool", "mousemove", "x", "y"])
-#subprocess.call(["xdotool", "click", "1"])
-subprocess.call(["xdotool", "mousemove", "64", "237", "click", "1"])
+
+# Construct the command as a list
+command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
+
+# Execute the command
+subprocess.run(command)
 
 time.sleep(2)
 try:
