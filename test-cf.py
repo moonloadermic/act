@@ -36,15 +36,14 @@ for i in range(2):
         checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
         ele2 = checkbox.next(2)
         print(ele2.text)
-        #输出 Verify you are human
-	    loc = ele2.rect.screen_midpoint
-	    print(loc)
-	    x = loc[0]
-	    y = loc[1]
-	    print(x,y)	
-	    time.sleep(2)
-	    command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
-	    subprocess.run(command)		
+        loc = ele2.rect.screen_midpoint
+        print(loc)
+        x = loc[0]
+        y = loc[1]
+        print(x,y)	
+        time.sleep(2)
+        command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
+        subprocess.run(command)		
         try:
             time.sleep(5)
             ele_for_check = tab.ele('x:/html/body/pre')
