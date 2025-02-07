@@ -32,6 +32,12 @@ ele.click()
 
 print(tab.title)
 
+try:
+	ele_for_check = tab2.ele('x:/html/body/div[1]/div[4]/main/div[2]/div/div/div[2]/h2')
+	print(ele_for_check.text)
+except:
+	print('元素丢失')
+
 
 browser.quit()
 display.stop()
