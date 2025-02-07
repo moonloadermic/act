@@ -23,5 +23,5 @@ jobs:
         run: sudo apt-get install xvfb xdotool
 
       - name: Running the Python script
-        run: python test2.py
+        run: python test-cf.py
         
