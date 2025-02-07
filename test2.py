@@ -1,3 +1,4 @@
+import subprocess
 import time
 from DrissionPage import Chromium, ChromiumOptions
 from pyvirtualdisplay import Display
@@ -27,6 +28,12 @@ print(tab.title)
 
 ele = tab.ele('x:/html/body/div[1]/div[4]/main/div[1]/nav/div/a[1]')
 print(ele.text)
+
+loc = ele.rect.screen_midpoint
+print(loc)
+x = loc[0]
+y = loc[1]
+print(x,y)
 
 ele.click()
 
