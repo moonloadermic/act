@@ -39,7 +39,7 @@ print(x,y)
 #ele.click()
 #subprocess.call(["xdotool", "mousemove", "x", "y"])
 #subprocess.call(["xdotool", "click", "1"])
-subprocess.call(["xdotool", "mousemove", "x", "y", "click", "1"])
+subprocess.call(["xdotool", "mousemove", "64", "237", "click", "1"])
 
 time.sleep(2)
 try:
