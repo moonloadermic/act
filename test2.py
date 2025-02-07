@@ -31,8 +31,11 @@ print(ele.text)
 
 loc = ele.rect.screen_midpoint
 print(loc)
-x = round(loc[0])
-y = round(loc[1])
+#x = round(loc[0])
+#y = round(loc[1])
+
+x = loc[0]
+y = loc[1]
 
 print(x,y)
 
