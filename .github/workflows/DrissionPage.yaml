@@ -1,4 +1,4 @@
-name: Run dp On GitHub Action
+name: Run DrissionPage On GitHub Action
 on:
   workflow_dispatch:
 jobs:
