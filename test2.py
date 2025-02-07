@@ -35,7 +35,9 @@ x = loc[0]
 y = loc[1]
 print(x,y)
 
-ele.click()
+#ele.click()
+subprocess.call(["xdotool", "mousemove", "x", "y"])
+subprocess.call(["xdotool", "click", "1"])
 
 time.sleep(2)
 try:
