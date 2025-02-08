@@ -24,6 +24,8 @@ tab = browser.latest_tab
 # 访问网页
 tab.get('https://github.com/trending')
 print(tab.title)
+ua = tab.user_agent
+print(ua)
 
 ele = tab.ele('x:/html/body/div[1]/div[4]/main/div[1]/nav/div/a[1]')
 print(ele.text)
