@@ -22,9 +22,9 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Running 1.sh
-	run: |
-	    chmod +x ./1.sh
-	    ./1.sh
+        run: |
+            chmod +x ./1.sh
+            ./1.sh
 
       - name: Running the Python script
         run: python test1.py
