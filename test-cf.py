@@ -36,10 +36,13 @@ for i in range(2):
         tab.get(url)
         tab.wait.load_start()
         ele = tab.ele("@name=cf-turnstile-response").parent()
+        # 找到复选框并返回元素中点在屏幕的位置
         checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
-        ele_Confirmhuman = checkbox.next(2)
-        print(ele_Confirmhuman.text)
-        loc = ele_Confirmhuman.rect.screen_midpoint
+        loc = checkbox.rect.screen_midpoint
+        # 找到'Verify you are human'并返回元素中点在屏幕的位置
+        # ele_Confirmhuman = checkbox.next(2)
+        # print(ele_Confirmhuman.text)
+        # loc = ele_Confirmhuman.rect.screen_midpoint
         print(loc)
         x = loc[0]
         y = loc[1]
