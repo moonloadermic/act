@@ -44,10 +44,9 @@ for i in range(2):
         # 找到'Verify you are human'并返回元素中点在屏幕的位置
         ele_Confirmhuman = checkbox.next(2)
         print(ele_Confirmhuman.text)
-        loc = ele_Confirmhuman.rect.screen_midpoint
-        print(loc)
         time.sleep(2)
-        ele.click(by_js=True)
+        ele_Confirmhuman.click()
+        # ele_Confirmhuman.click(by_js=True)
         try:
             time.sleep(5)
             ele_for_check = tab.ele(ele_for_check_path)
