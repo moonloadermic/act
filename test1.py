@@ -1,14 +1,11 @@
 import time
 from DrissionPage import Chromium, ChromiumOptions
-#from pyvirtualdisplay import Display
+from pyvirtualdisplay import Display
 
-#display = Display(visible=0, size=(1920, 1080))
-#display.start()
+display = Display(visible=0, size=(1920, 1080))
+display.start()
 
 co = ChromiumOptions().auto_port()
-
-chrome_binary_path = "/opt/google/chrome/google-chrome"
-co.set_browser_path(chrome_binary_path)
 
 arguments = [
     "--disable-gpu",
@@ -43,4 +40,4 @@ except:
 
 
 browser.quit()
-#display.stop()
+display.stop()
