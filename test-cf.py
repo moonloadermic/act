@@ -35,7 +35,7 @@ for i in range(2):
         print("正在开始尝试")
         tab.get(url)
         tab.wait.load_start()
-		time.sleep(2)
+	time.sleep(2)
         ele = tab.ele("@name=cf-turnstile-response").parent()
         # 找到复选框并返回元素中点在屏幕的位置
         checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
