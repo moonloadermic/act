@@ -1,7 +1,7 @@
-which google-chrome
+which chrome
 
-sudo find / -name google-chrome
+sudo find / -name chrome
 
-sudo locate google-chrome
+sudo locate chrome
 
-sudo ls -l /usr/bin/google-chrome
+
