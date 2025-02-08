@@ -16,7 +16,7 @@ arguments = [
     "--disable-gpu",
     "--no-sandbox",
     "--disable-dev-shm-usage",
-    "--window-size=1920,1080",    
+#    "--window-size=1920,1080",    
 ]
 
 for argument in arguments:
@@ -27,7 +27,7 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
-tab.set.window.location(0, 0)
+# tab.set.window.location(0, 0)
 
 bypass = False
 
@@ -37,18 +37,20 @@ for i in range(2):
         tab.get(url)
         tab.wait.load_start()
         time.sleep(2)
-        ele = tab.ele("@name=cf-turnstile-response").parent()
-        # 找到复选框并返回元素中点在屏幕的位置
-        checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
-        loc = checkbox.rect.screen_midpoint
-        # 找到'Verify you are human'并返回元素中点在屏幕的位置
-        # ele_Confirmhuman = checkbox.next(2)
-        # print(ele_Confirmhuman.text)
-        # loc = ele_Confirmhuman.rect.screen_midpoint
+        js_code = """
+        var square = document.createElement('div');
+        square.id = 'positioning-test';
+        square.style.cssText = 'position: relative;top: 110px;left: 18px;width: 21px;height: 21px;z-index: 99999;background: blue';
+        document.querySelector("body > div.main-wrapper > div > h1").appendChild(square);
+        """
+        tab.run_js(js_code)
+        ele = tab.ele('#positioning-test')
+        time.sleep(1)
+        ele.run_js('this.style.zIndex=-1')
+        loc = ele.rect.screen_midpoint
         print(loc)
         x = loc[0]
-        y = loc[1]
-        print(x,y)	
+        y = loc[1]	
         time.sleep(2)
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
         subprocess.run(command)	
