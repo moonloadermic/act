@@ -7,6 +7,9 @@ display.start()
 
 co = ChromiumOptions().auto_port()
 
+chrome_binary_path = "/opt/google/chrome/google-chrome"
+co.set_browser_path(chrome_binary_path)
+
 arguments = [
     "--disable-gpu",
     "--no-sandbox",
