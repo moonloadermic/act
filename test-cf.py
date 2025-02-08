@@ -41,8 +41,8 @@ for i in range(2):
         print(ele.text)
         loc = ele.rect.screen_location
         print(loc)
-        x=loc[0]+38
-        y=loc[1]+195
+        x=loc[0]+11
+        y=loc[1]+150
         print(x,y)
         time.sleep(2)
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
