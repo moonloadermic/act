@@ -16,7 +16,7 @@ arguments = [
     "--disable-gpu",
     "--no-sandbox",
     "--disable-dev-shm-usage",
-    "--window-size=1920,1080",    
+    # "--window-size=1920,1080"
 ]
 
 for argument in arguments:
@@ -27,7 +27,7 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
-tab.set.window.location(0, 0)
+# tab.set.window.location(0, 0)
 
 bypass = False
 
@@ -37,12 +37,12 @@ for i in range(2):
         tab.get(url)
         tab.wait.load_start()
         time.sleep(2)
-        ele = tab.ele('.:zone-name-title')
-        print(ele.text)
+        ele = tab.ele("@name=cf-turnstile-response").parent()
+        print(ele)
         loc = ele.rect.screen_location
         print(loc)
-        x=loc[0]+11
-        y=loc[1]+150
+        x=loc[0]+32
+        y=loc[1]+35
         print(x,y)
         time.sleep(2)
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
