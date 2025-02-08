@@ -7,9 +7,6 @@ url = 'https://test.aiuuo.com/'
 ele_for_check_path = 'x:/html/body/pre'
 ele_for_check_text = 'Hello World!'
 
-display = Display(visible=0, size=(1920, 1080))
-display.start()
-
 co = ChromiumOptions().auto_port()
 
 arguments = [
@@ -60,4 +57,4 @@ if not bypass:
 
 time.sleep(5)
 browser.quit()
-display.stop()
+
