@@ -45,8 +45,8 @@ for i in range(2):
         ele_Confirmhuman = checkbox.next(2)
         print(ele_Confirmhuman.text)
         time.sleep(2)
-        ele_Confirmhuman.click()
-        # ele_Confirmhuman.click(by_js=True)
+        # ele_Confirmhuman.click()
+        ele_Confirmhuman.click(by_js=True)
         try:
             time.sleep(5)
             ele_for_check = tab.ele(ele_for_check_path)
