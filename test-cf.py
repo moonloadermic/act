@@ -27,7 +27,7 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
-# tab.set.window.location(0, 0)
+tab.set.window.location(0, 0)
 
 bypass = False
 
