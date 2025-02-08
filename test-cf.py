@@ -3,9 +3,9 @@ import time
 from DrissionPage import Chromium, ChromiumOptions
 from pyvirtualdisplay import Display
 
-url = 'https://test.aiuuo.com/'
-ele_for_check_path = 'x:/html/body/pre'
-ele_for_check_text = 'Hello World!'
+url = 'https://nopecha.com/demo/cloudflare'
+ele_for_check_path = 'x://*[@id="padded_content"]/div/h3'
+ele_for_check_text = 'CAPTCHA Demo'
 
 display = Display(visible=0, size=(1920, 1080))
 display.start()
