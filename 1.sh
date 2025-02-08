@@ -1,8 +1,2 @@
-whereis google-chrome
-which chrome
-
-sudo find / -name chrome
-
-sudo locate chrome
-
+echo "hello world 123"
 
