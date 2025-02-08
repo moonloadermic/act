@@ -32,9 +32,10 @@ bypass = False
 
 for i in range(2):
     try:
-        print(f"正在开始第{i+1}次尝试")
+        print("正在开始尝试")
         tab.get(url)
         tab.wait.load_start()
+		time.sleep(2)
         ele = tab.ele("@name=cf-turnstile-response").parent()
         # 找到复选框并返回元素中点在屏幕的位置
         checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
@@ -62,10 +63,10 @@ for i in range(2):
             time.sleep(1)
 
     except:
-        print(f"第{i+1}次尝试，复选框未找到")
+        print("复选框未找到")
 
 if not bypass:
-    print("很遗憾，两次验证没有通过。")
+    print("很遗憾，验证没有通过。")
 
 time.sleep(5)
 browser.quit()
