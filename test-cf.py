@@ -12,10 +12,6 @@ display.start()
 
 co = ChromiumOptions().auto_port()
 
-co.headless()
-ua = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36'
-co.set_user_agent(user_agent=ua)
-
 arguments = [
     "--disable-gpu",
     "--no-sandbox",
