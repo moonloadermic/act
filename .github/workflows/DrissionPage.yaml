@@ -23,5 +23,5 @@ jobs:
         run: sudo apt-get install xvfb
 
       - name: Running the Python script
-        run: python test.py
+        run: python test1.py
         
