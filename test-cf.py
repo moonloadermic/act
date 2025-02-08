@@ -27,46 +27,43 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
-tab.get(url)
-tab.wait.load_start()
-time.sleep(2)
-ele = tab.ele('.:zone-name-title')
-print(ele.text)
-
-#返回元素左上角在屏幕中的坐标
-loc = ele.rect.screen_location
-print(loc)
-
-x=loc[0]+38
-y=loc[1]+195
-
-time.sleep(2)
+# tab.set.window.location(0, 0)
 
 bypass = False
 
-#每隔1秒进行一次点击，最多5次
-for i in range(5):
-    command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
-    subprocess.run(command)	        
+for i in range(2):
     try:
-        time.sleep(5)
-        ele_for_check = tab.ele(ele_for_check_path)
-        if ele_for_check.text == ele_for_check_text:
-            print(ele_for_check.text)
-            print("恭喜！验证通过。")
-            bypass = True
-            break
+        print(f"正在开始第{i+1}次尝试")
+        tab.get(url)
+        tab.wait.load_start()
+        time.sleep(2)
+        ele = tab.ele('.:zone-name-title')
+        print(ele.text)
+        loc = ele.rect.screen_location
+        print(loc)
+        x=loc[0]+38
+        y=loc[1]+195
+        print(x,y)
+        time.sleep(2)
+        command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
+        subprocess.run(command)	
+        try:
+            time.sleep(5)
+            ele_for_check = tab.ele(ele_for_check_path)
+            if ele_for_check.text == ele_for_check_text:
+                print(ele_for_check.text)
+                print("恭喜！验证通过。")
+                bypass = True
+                break
+        except:
+            time.sleep(1)
+
     except:
-        time.sleep(1)
+        print(f"第{i+1}次尝试，复选框未找到")
 
 if not bypass:
-    print("很遗憾，验证没有通过。")
+    print("很遗憾，两次验证没有通过。")
 
 time.sleep(5)
 browser.quit()
 display.stop()
-
-        
-
-
-
