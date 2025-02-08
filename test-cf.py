@@ -16,7 +16,7 @@ arguments = [
     "--disable-gpu",
     "--no-sandbox",
     "--disable-dev-shm-usage",
-#    "--window-size=1920,1080",    
+    "--window-size=1920,1080",    
 ]
 
 for argument in arguments:
@@ -27,7 +27,7 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
-# tab.set.window.location(0, 0)
+tab.set.window.location(0, 0)
 
 bypass = False
 
