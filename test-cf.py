@@ -3,6 +3,10 @@ import time
 from DrissionPage import Chromium, ChromiumOptions
 from pyvirtualdisplay import Display
 
+url = 'https://test.aiuuo.com/'
+ele_for_check_path = 'x:/html/body/pre'
+ele_for_check_text = 'Hello World!'
+
 display = Display(visible=0, size=(1920, 1080))
 display.start()
 
@@ -29,27 +33,26 @@ bypass = False
 for i in range(2):
     try:
         print(f"正在开始第{i+1}次尝试")
-        tab.get('https://test.aiuuo.com/')
+        tab.get(url)
         tab.wait.load_start()
         ele = tab.ele("@name=cf-turnstile-response").parent()
-        #ele = tab.ele("@name=cf-turnstile-response")
         checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
-        ele2 = checkbox.next(2)
-        print(ele2.text)
-        loc = ele2.rect.screen_midpoint
+        ele_Confirmhuman = checkbox.next(2)
+        print(ele_Confirmhuman.text)
+        loc = ele_Confirmhuman.rect.screen_midpoint
         print(loc)
         x = loc[0]
         y = loc[1]
         print(x,y)	
         time.sleep(2)
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
-        subprocess.run(command)		
+        subprocess.run(command)	
         try:
             time.sleep(5)
-            ele_for_check = tab.ele('x:/html/body/pre')
-            if ele_for_check.text == 'Hello World!':
+            ele_for_check = tab.ele(ele_for_check_path)
+            if ele_for_check.text == ele_for_check_text:
                 print(ele_for_check.text)
-                print(f"恭喜！第{i+1}次尝试验证通过。")
+                print("恭喜！验证通过。")
                 bypass = True
                 break
         except:
