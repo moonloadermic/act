@@ -23,7 +23,8 @@ jobs:
         run: sudo apt-get install xvfb xdotool
 
       - name: Running the Python script
-        run: python test-cf.py
+        #run: python test-cf.py
+        run: python test1.py
 
       - name: Commit and Push The Results From Python Selenium Action
         run: |
