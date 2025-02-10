@@ -31,45 +31,46 @@ tab = browser.latest_tab
 
 bypass = False
 
-try:
-    print("正在开始尝试")
-    tab.get(url)
-    tab.wait.load_start()
-    time.sleep(2)
-    ele = tab.ele("@name=cf-turnstile-response").parent()
-    # 找到复选框并返回元素中点在屏幕的位置
-    checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
-    loc = checkbox.rect.screen_midpoint
-    # 找到'Verify you are human'并返回元素中点在屏幕的位置
-    # ele_Confirmhuman = checkbox.next(2)
-    # print(ele_Confirmhuman.text)
-    # loc = ele_Confirmhuman.rect.screen_midpoint
-    print(loc)
-    x = loc[0]
-    y = loc[1]
-    print(x,y)	
-    time.sleep(2)
-    command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
-    subprocess.run(command)
-    # 录制视频
-    tab.screencast.set_save_path('video')  # 设置视频存放路径
-    tab.screencast.set_mode.video_mode()  # 设置录制
-    tab.screencast.start()  # 开始录制
-    tab.wait(2)
-    tab.screencast.stop()  # 停止录制
+for i in range(2):
     try:
-        time.sleep(5)
-        ele_for_check = tab.ele(ele_for_check_path)
-        if ele_for_check.text == ele_for_check_text:
-            print(ele_for_check.text)
-            print("恭喜！验证通过。")
-            bypass = True
+        print(f"正在开始第{i+1}次尝试")
+        tab.get(url)
+        tab.wait.load_start()
+        time.sleep(2)
+        ele = tab.ele("@name=cf-turnstile-response").parent()
+        # 找到复选框并返回元素中点在屏幕的位置
+        checkbox = ele.sr('t:iframe')('t:body').sr('t:input')
+        loc = checkbox.rect.screen_midpoint
+        # 找到'Verify you are human'并返回元素中点在屏幕的位置
+        # ele_Confirmhuman = checkbox.next(2)
+        # print(ele_Confirmhuman.text)
+        # loc = ele_Confirmhuman.rect.screen_midpoint
+        print(loc)
+        x = loc[0]
+        y = loc[1]
+        print(x,y)	
+        time.sleep(2)
+        command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
+        subprocess.run(command)
+        tab.screencast.set_save_path('video')  # 设置视频存放路径
+        tab.screencast.set_mode.video_mode()  # 设置录制
+        tab.screencast.start()  # 开始录制
+        tab.wait(2)
+        tab.screencast.stop(video_name='123')  # 停止录制
+
+        try:
+            time.sleep(5)
+            ele_for_check = tab.ele(ele_for_check_path)
+            if ele_for_check.text == ele_for_check_text:
+                print(ele_for_check.text)
+                print("恭喜！验证通过。")
+                bypass = True
+                break
+        except:
+            time.sleep(1)
 
     except:
-        time.sleep(1)
-
-except:
-    print("复选框未找到")
+        print(f"第{i+1}次尝试，复选框未找到")
 
 if not bypass:
     print("很遗憾，两次验证没有通过。")
