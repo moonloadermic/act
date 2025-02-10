@@ -42,6 +42,8 @@ try:
 except:
 	print('元素丢失')
 
+with open('./Results.txt', 'w', encoding='utf-8') as f:
+    f.write(f"点击后的元素文字为： {ele_for_check.text}")
 
 browser.quit()
 display.stop()
