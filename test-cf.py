@@ -54,7 +54,7 @@ for i in range(2):
         subprocess.run(command)
         for i in range(2):
             tab.get_screenshot(name=f'screenshot{i + 1}.png')
-            time.sleep(0.2)
+            time.sleep(0.1)
 
         try:
             time.sleep(5)
