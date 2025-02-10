@@ -52,10 +52,10 @@ for i in range(2):
         time.sleep(2)
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
         subprocess.run(command)
-        time.sleep(0.4)
+        time.sleep(0.42)
         for i in range(3):
             tab.get_screenshot(name=f'screenshot{i + 1}.png')
-            time.sleep(0.02)
+            time.sleep(0.01)
 
         try:
             time.sleep(5)
