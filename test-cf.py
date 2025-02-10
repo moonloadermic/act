@@ -27,6 +27,10 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
+tab.screencast.set_save_path('video')  # 设置视频存放路径
+tab.screencast.set_mode.video_mode()  # 设置录制
+tab.screencast.start()  # 开始录制
+
 # tab.set.window.location(0, 0)
 
 bypass = False
@@ -34,9 +38,6 @@ bypass = False
 for i in range(2):
     try:
         print(f"正在开始第{i+1}次尝试")
-        tab.screencast.set_save_path('video')  # 设置视频存放路径
-        tab.screencast.set_mode.video_mode()  # 设置录制
-        tab.screencast.start()  # 开始录制
         tab.get(url)
         tab.wait.load_start()
         time.sleep(2)
