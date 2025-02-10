@@ -34,6 +34,9 @@ bypass = False
 for i in range(2):
     try:
         print(f"正在开始第{i+1}次尝试")
+        tab.screencast.set_save_path('video')  # 设置视频存放路径
+        tab.screencast.set_mode.video_mode()  # 设置录制
+        tab.screencast.start()  # 开始录制
         tab.get(url)
         tab.wait.load_start()
         time.sleep(2)
@@ -52,12 +55,6 @@ for i in range(2):
         time.sleep(2)
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
         subprocess.run(command)
-        tab.screencast.set_save_path('video')  # 设置视频存放路径
-        tab.screencast.set_mode.video_mode()  # 设置录制
-        tab.screencast.start()  # 开始录制
-        tab.wait(2)
-        tab.screencast.stop(video_name='123')  # 停止录制
-
         try:
             time.sleep(5)
             ele_for_check = tab.ele(ele_for_check_path)
@@ -75,6 +72,8 @@ for i in range(2):
 if not bypass:
     print("很遗憾，两次验证没有通过。")
 
-time.sleep(5)
+time.sleep(2)
+tab.screencast.stop(video_name='123')  # 停止录制
+time.sleep(2)
 browser.quit()
 display.stop()
