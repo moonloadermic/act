@@ -74,7 +74,7 @@ if not bypass:
     print("很遗憾，两次验证没有通过。")
 
 time.sleep(2)
-tab.screencast.stop(video_name='123')  # 停止录制
+tab.screencast.stop()  # 停止录制
 time.sleep(2)
 browser.quit()
 display.stop()
