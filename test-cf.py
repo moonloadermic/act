@@ -29,13 +29,10 @@ tab = browser.latest_tab
 
 # tab.set.window.location(0, 0)
 
-bypass = False
-
-
+print("正在开始尝试")
+tab.get(url)
+tab.wait.load_start()
 try:
-    print(f"正在开始第{i+1}次尝试")
-    tab.get(url)
-    tab.wait.load_start()
     time.sleep(2)
     ele = tab.ele("@name=cf-turnstile-response").parent()
     # 找到复选框并返回元素中点在屏幕的位置
