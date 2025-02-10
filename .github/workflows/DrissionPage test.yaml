@@ -18,7 +18,7 @@ jobs:
         
        # Need to fetch reqs if needed
       - name: Installing all necessary packages
-        run: pip install DrissionPage pyvirtualdisplay
+        run: pip install DrissionPage pyvirtualdisplay opencv-python
       - name: Install xvfb xdotool
         run: sudo apt-get install xvfb xdotool
 
