@@ -55,7 +55,7 @@ for i in range(2):
         time.sleep(0.4)
         for i in range(3):
             tab.get_screenshot(name=f'screenshot{i + 1}.png')
-            time.sleep(0.05)
+            time.sleep(0.02)
 
         try:
             time.sleep(5)
