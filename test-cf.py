@@ -27,9 +27,7 @@ browser = Chromium(co)
 
 tab = browser.latest_tab
 
-tab.screencast.set_save_path('video')  # 设置视频存放路径
-tab.screencast.set_mode.video_mode()  # 设置录制
-tab.screencast.start()  # 开始录制
+
 
 # tab.set.window.location(0, 0)
 
@@ -54,6 +52,10 @@ for i in range(2):
         y = loc[1]
         print(x,y)	
         time.sleep(2)
+        # 点击前开始录制视频
+        tab.screencast.set_save_path('video')  # 设置视频存放路径
+        tab.screencast.set_mode.video_mode()  # 设置录制
+        tab.screencast.start()  # 开始录制
         command = ['xdotool', 'mousemove', str(x), str(y), 'click', '1']
         subprocess.run(command)
         try:
@@ -74,7 +76,7 @@ if not bypass:
     print("很遗憾，两次验证没有通过。")
 
 time.sleep(2)
-tab.screencast.stop()  # 停止录制
+tab.screencast.stop(video_name='123')  # 停止录制
 time.sleep(2)
 browser.quit()
 display.stop()
